@@ -10,6 +10,7 @@ class AppTheme {
 
   static ThemeData getTheme() {
     return ThemeData(
+      scaffoldBackgroundColor: primaryColor,
       colorScheme: const ColorScheme(
         brightness: Brightness.light,
         primary: AppColors.blue,
