@@ -10,7 +10,7 @@ void main() async {
 
   runApp(const SplashPage());
 
-  Future.delayed(const Duration(seconds: 2));
+  await Future.delayed(const Duration(seconds: 2));
 
   runApp(const VzApp());
 
