@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vz_app/interactor/cubits/phrases/phrases_cubit.dart';
-import 'package:vz_app/ui/constants/app_colors.dart';
-import 'package:vz_app/ui/constants/app_icons.dart';
-import 'package:vz_app/ui/constants/app_theme.dart';
+import 'package:vz_app/ui/utils/app_colors.dart';
+import 'package:vz_app/ui/utils/app_icons.dart';
+import 'package:vz_app/ui/utils/app_theme.dart';
 import 'package:vz_app/ui/widgets/appbar_widget.dart';
 import 'package:vz_app/ui/widgets/bottom_appbar_widget.dart';
 

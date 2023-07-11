@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vz_app/interactor/cubits/counter/counter_cubit.dart';
 import 'package:vz_app/interactor/cubits/phrases/phrases_cubit.dart';
-import 'package:vz_app/ui/constants/app_icons.dart';
-import 'package:vz_app/ui/constants/app_theme.dart';
+import 'package:vz_app/ui/utils/app_icons.dart';
+import 'package:vz_app/ui/utils/app_theme.dart';
 
 class BottomAppBarWidget extends StatelessWidget {
   const BottomAppBarWidget({super.key});

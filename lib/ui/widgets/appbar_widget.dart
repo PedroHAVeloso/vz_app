@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vz_app/ui/constants/app_icons.dart';
-import 'package:vz_app/ui/constants/app_theme.dart';
+import 'package:vz_app/ui/utils/app_icons.dart';
+import 'package:vz_app/ui/utils/app_theme.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key, required this.scaffoldKey});

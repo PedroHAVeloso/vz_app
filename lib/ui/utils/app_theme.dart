@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vz_app/ui/constants/app_colors.dart';
+import 'package:vz_app/ui/utils/app_colors.dart';
 
 class AppTheme {
   static const Color primaryColor = AppColors.white;
