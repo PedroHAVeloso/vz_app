@@ -10,6 +10,7 @@ class AppTheme {
 
   static ThemeData getTheme() {
     return ThemeData(
+      fontFamily: 'Poppins',
       scaffoldBackgroundColor: primaryColor,
       colorScheme: const ColorScheme(
         brightness: Brightness.light,

@@ -9,17 +9,13 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
-  Size get preferredSize => const Size.fromHeight(70.0);
+  Size get preferredSize => const Size.fromHeight(90.0);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.only(
-          top: 20.0,
-          left: 20.0,
-          right: 20.0,
-        ),
+        padding: const EdgeInsets.all(20.0),
         child: SizedBox(
           height: preferredSize.height,
           child: Row(
@@ -46,7 +42,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

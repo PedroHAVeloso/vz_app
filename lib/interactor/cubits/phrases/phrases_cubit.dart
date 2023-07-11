@@ -10,13 +10,17 @@ class PhrasesCubit extends Cubit<PhrasesState> {
 
   List _phrases = [];
 
-  void getPhrases() async {
+  void getPhrases({required int number}) async {
     emit(PhrasesLoading());
-    _phrases = await repository.getPhrasesList();
+    _phrases = await repository.getPhrasesList(number: number);
 
     // ! TODO: REMOVER
     await Future.delayed(const Duration(seconds: 2));
 
     emit(PhrasesLoaded(phrases: _phrases));
+  }
+
+  void clearPhrases() {
+    emit(PhrasesInitial());
   }
 }

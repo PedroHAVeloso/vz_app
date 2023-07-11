@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
-    final cubit = context.read<PhrasesCubit>();
 
     return Scaffold(
       key: scaffoldKey,
@@ -20,15 +19,7 @@ class HomePage extends StatelessWidget {
       body: BlocBuilder<PhrasesCubit, PhrasesState>(
         builder: (context, state) {
           if (state is PhrasesInitial) {
-            return Container(
-              height: 100,
-              width: 100,
-              color: Colors.red,
-              child: ElevatedButton(
-                onPressed: cubit.getPhrases,
-                child: const Text("Mudar"),
-              ),
-            );
+            return Container();
           }
           if (state is PhrasesLoading) {
             return CircularProgressIndicator();
@@ -37,10 +28,6 @@ class HomePage extends StatelessWidget {
             return Column(
               children: [
                 Text(state.phrases.toString()),
-                ElevatedButton(
-                  onPressed: cubit.getPhrases,
-                  child: const Text("Mudar"),
-                ),
               ],
             );
           }
