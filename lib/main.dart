@@ -1,20 +1,19 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:vz_app/ui/app.dart';
+import 'package:vz_app/ui/pages/splash_page.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+void main() async {
+  final runTime = Stopwatch();
+  runTime.start();
+  log("App start");
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  runApp(const SplashPage());
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Olá, VZ!'),
-        ),
-      ),
-    );
-  }
+  await Future.delayed(const Duration(seconds: 2));
+
+  runApp(const VzApp());
+
+  runTime.stop();
+  log("${runTime.elapsed.inMilliseconds}ms to run app");
 }
