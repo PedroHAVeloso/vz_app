@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:vz_app/view/app.dart';
-import 'package:vz_app/view/pages/splash_page.dart';
+import 'package:vz_app/ui/app.dart';
+import 'package:vz_app/ui/pages/splash_page.dart';
 
 void main() async {
   final runTime = Stopwatch();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vz_app/view/constants/app_theme.dart';
+import 'package:vz_app/ui/constants/app_icons.dart';
+import 'package:vz_app/ui/constants/app_theme.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key, required this.scaffoldKey});
@@ -26,7 +27,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             children: [
               SvgPicture.asset(
                 'assets/logos/logo_colour_dark.svg',
-                width: MediaQuery.sizeOf(context).width * 0.3,
+                width: 100.0,
               ),
               Ink(
                 height: 50.0,
@@ -38,7 +39,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                 child: IconButton(
                   onPressed: () => scaffoldKey.currentState!.openEndDrawer(),
                   icon: SvgPicture.asset(
-                    'assets/icons/menu.svg',
+                    AppIcons.menu,
                     colorFilter: const ColorFilter.mode(
                       AppTheme.primaryColor,
                       BlendMode.srcIn,
