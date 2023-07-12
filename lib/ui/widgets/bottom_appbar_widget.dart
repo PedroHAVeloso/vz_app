@@ -5,6 +5,7 @@ import 'package:vz_app/interactor/cubits/counter/counter_cubit.dart';
 import 'package:vz_app/interactor/cubits/phrases/phrases_cubit.dart';
 import 'package:vz_app/ui/utils/app_icons.dart';
 import 'package:vz_app/ui/utils/app_theme.dart';
+import 'package:vz_app/ui/widgets/buttons/icon_filled_button_widget.dart';
 
 class BottomAppBarWidget extends StatelessWidget {
   const BottomAppBarWidget({super.key});
@@ -49,42 +50,18 @@ class BottomAppBarWidget extends StatelessWidget {
             const SizedBox(width: 4.0),
             Column(
               children: [
-                Ink(
-                  height: 50.0,
-                  width: 50.0,
-                  decoration: BoxDecoration(
-                    color: AppTheme.tertiaryColor,
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: IconButton(
-                    onPressed: counterCubit.increment,
-                    icon: SvgPicture.asset(
-                      AppIcons.add,
-                      colorFilter: const ColorFilter.mode(
-                        AppTheme.primaryColor,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
+                IconFilledButtonWidget(
+                  onPressed: counterCubit.increment,
+                  fillColor: AppTheme.tertiaryColor,
+                  iconPath: AppIcons.add,
+                  iconColor: AppTheme.primaryColor,
                 ),
                 const SizedBox(height: 4.0),
-                Ink(
-                  height: 50.0,
-                  width: 50.0,
-                  decoration: BoxDecoration(
-                    color: AppTheme.tertiaryColor,
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: IconButton(
-                    onPressed: counterCubit.decrement,
-                    icon: SvgPicture.asset(
-                      AppIcons.remove,
-                      colorFilter: const ColorFilter.mode(
-                        AppTheme.primaryColor,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
+                IconFilledButtonWidget(
+                  onPressed: counterCubit.decrement,
+                  fillColor: AppTheme.tertiaryColor,
+                  iconPath: AppIcons.remove,
+                  iconColor: AppTheme.primaryColor,
                 ),
               ],
             ),
