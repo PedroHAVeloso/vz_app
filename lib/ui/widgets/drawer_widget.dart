@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vz_app/interactor/cubits/favorited_phrases/favorited_phrases_cubit.dart';
 import 'package:vz_app/ui/utils/app_icons.dart';
 import 'package:vz_app/ui/utils/app_theme.dart';
+import 'package:vz_app/ui/widgets/buttons/icon_button_widget.dart';
+import 'package:vz_app/ui/widgets/buttons/text_icon_button_widget.dart';
 import 'package:vz_app/ui/widgets/progress_indicator_widget.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -70,37 +72,27 @@ class DrawerWidget extends StatelessWidget {
                                 children: [
                                   Column(
                                     children: [
-                                      InkWell(
+                                      IconButtonWidget(
                                         onTap: () => Clipboard.setData(
                                           ClipboardData(
                                             text: state.phrases.values
                                                 .elementAt(items),
                                           ),
                                         ),
-                                        child: SvgPicture.asset(
-                                          AppIcons.copy,
-                                          colorFilter: const ColorFilter.mode(
-                                            AppTheme.accentColor,
-                                            BlendMode.srcIn,
-                                          ),
-                                          width: 24.0,
-                                        ),
+                                        iconPath: AppIcons.copy,
+                                        iconColor: AppTheme.accentColor,
+                                        iconSize: 24.0,
                                       ),
                                       const SizedBox(height: 10.0),
-                                      InkWell(
+                                      IconButtonWidget(
                                         onTap: () => favoritedPhrasesCubit
                                             .unFavoritePhrase(
                                           key: state.phrases.keys
                                               .elementAt(items),
                                         ),
-                                        child: SvgPicture.asset(
-                                          AppIcons.close,
-                                          colorFilter: const ColorFilter.mode(
-                                            AppTheme.negativeColor,
-                                            BlendMode.srcIn,
-                                          ),
-                                          width: 24.0,
-                                        ),
+                                        iconPath: AppIcons.close,
+                                        iconColor: AppTheme.negativeColor,
+                                        iconSize: 24.0,
                                       ),
                                     ],
                                   ),
@@ -133,39 +125,10 @@ class DrawerWidget extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 10.0),
-              SizedBox(
-                height: 60.0,
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    backgroundColor: AppTheme.secondaryColor,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text(
-                        'Alterar Tema',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16.0,
-                          color: AppTheme.primaryColor,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      SvgPicture.asset(
-                        AppIcons.moon,
-                        colorFilter: const ColorFilter.mode(
-                          AppTheme.primaryColor,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              TextIconButtonWidget(
+                onPressed: () {},
+                iconPath: AppIcons.moon,
+                text: 'Alterar Tema',
               ),
             ],
           ),
