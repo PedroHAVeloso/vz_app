@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vz_app/data/repositories/favorited_phrases_repository.dart';
 
-part 'favorited_phrases_state.dart';
+part '../states/favorited_phrases_state.dart';
 
 class FavoritedPhrasesCubit extends Cubit<FavoritedPhrasesState> {
   FavoritedPhrasesCubit() : super(FavoritedPhrasesInitial()) {

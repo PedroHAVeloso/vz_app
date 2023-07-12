@@ -1,4 +1,4 @@
-part of 'favorited_phrases_cubit.dart';
+part of '../cubits/favorited_phrases_cubit.dart';
 
 abstract class FavoritedPhrasesState {}
 

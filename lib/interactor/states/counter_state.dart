@@ -1,4 +1,4 @@
-part of 'counter_cubit.dart';
+part of '../cubits/counter_cubit.dart';
 
 abstract class CounterState {}
 

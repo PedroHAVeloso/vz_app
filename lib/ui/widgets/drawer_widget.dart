@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vz_app/interactor/cubits/favorited_phrases/favorited_phrases_cubit.dart';
+import 'package:vz_app/interactor/cubits/favorited_phrases_cubit.dart';
 import 'package:vz_app/ui/utils/app_icons.dart';
 import 'package:vz_app/ui/utils/app_theme.dart';
 import 'package:vz_app/ui/widgets/buttons/icon_button_widget.dart';

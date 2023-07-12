@@ -1,4 +1,4 @@
-part of 'phrases_cubit.dart';
+part of '../cubits/phrases_cubit.dart';
 
 abstract class PhrasesState {}
 
