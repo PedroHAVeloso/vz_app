@@ -54,7 +54,14 @@ class DrawerWidget extends StatelessWidget {
                   } else if (state is FavoritedPhrasesLoading) {
                     return const Expanded(
                       child: Center(
-                        child: CircularProgressIndicator(),
+                        child: SizedBox(
+                          height: 60.0,
+                          width: 60.0,
+                          child: CircularProgressIndicator(
+                            color: AppTheme.accentColor,
+                            strokeWidth: 5.0,
+                          ),
+                        ),
                       ),
                     );
                   } else if (state is FavoritedPhrasesLoaded) {
