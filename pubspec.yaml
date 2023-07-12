@@ -1,7 +1,7 @@
 name: vz_app
 description: Aplicativo para gerar frases que, provavelmente, seriam ditas por velhas do zap.
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

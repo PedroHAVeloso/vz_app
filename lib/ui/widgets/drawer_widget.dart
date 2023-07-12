@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vz_app/interactor/cubits/favorited_phrases/favorited_phrases_cubit.dart';
 import 'package:vz_app/ui/utils/app_icons.dart';
 import 'package:vz_app/ui/utils/app_theme.dart';
+import 'package:vz_app/ui/widgets/progress_indicator_widget.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -54,14 +55,7 @@ class DrawerWidget extends StatelessWidget {
                   } else if (state is FavoritedPhrasesLoading) {
                     return const Expanded(
                       child: Center(
-                        child: SizedBox(
-                          height: 60.0,
-                          width: 60.0,
-                          child: CircularProgressIndicator(
-                            color: AppTheme.accentColor,
-                            strokeWidth: 5.0,
-                          ),
-                        ),
+                        child: ProgressIndicatorWidget(),
                       ),
                     );
                   } else if (state is FavoritedPhrasesLoaded) {
