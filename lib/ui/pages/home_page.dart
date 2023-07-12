@@ -8,7 +8,9 @@ import 'package:vz_app/ui/utils/app_icons.dart';
 import 'package:vz_app/ui/utils/app_theme.dart';
 import 'package:vz_app/ui/widgets/appbar_widget.dart';
 import 'package:vz_app/ui/widgets/bottom_appbar_widget.dart';
+import 'package:vz_app/ui/widgets/buttons/icon_button_widget.dart';
 import 'package:vz_app/ui/widgets/drawer_widget.dart';
+import 'package:vz_app/ui/widgets/progress_indicator_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -53,14 +55,7 @@ class HomePage extends StatelessWidget {
             }
             if (state is PhrasesLoading) {
               return const Center(
-                child: SizedBox(
-                  height: 60.0,
-                  width: 60.0,
-                  child: CircularProgressIndicator(
-                    color: AppTheme.accentColor,
-                    strokeWidth: 5.0,
-                  ),
-                ),
+                child: ProgressIndicatorWidget(),
               );
             }
             if (state is PhrasesLoaded) {
@@ -77,48 +72,39 @@ class HomePage extends StatelessWidget {
                               children: [
                                 Column(
                                   children: [
-                                    InkWell(
+                                    IconButtonWidget(
                                       onTap: () => Clipboard.setData(
                                         ClipboardData(
-                                          text: state.phrases[items],
+                                          text: state.phrases[items].toString(),
                                         ),
                                       ),
-                                      child: SvgPicture.asset(
-                                        AppIcons.copy,
-                                        colorFilter: const ColorFilter.mode(
-                                          AppTheme.accentColor,
-                                          BlendMode.srcIn,
-                                        ),
-                                        width: 24.0,
-                                      ),
+                                      iconPath: AppIcons.copy,
+                                      iconColor: AppTheme.accentColor,
+                                      iconSize: 24.0,
                                     ),
                                     const SizedBox(height: 10.0),
-                                    InkWell(
+                                    IconButtonWidget(
                                       onTap: () {
                                         favoritedPhrasesCubit.favoritePhrase(
-                                          phrase: state.phrases[items],
+                                          phrase:
+                                              state.phrases[items].toString(),
                                         );
                                         phrasesCubit.favoritePhrase(
                                           itemId: items,
                                         );
                                       },
-                                      child: SvgPicture.asset(
-                                        state.favorites[items]
-                                            ? AppIcons.favoriteFilled
-                                            : AppIcons.favorite,
-                                        colorFilter: const ColorFilter.mode(
-                                          AppTheme.accentColor,
-                                          BlendMode.srcIn,
-                                        ),
-                                        width: 24.0,
-                                      ),
+                                      iconPath: state.favorites[items]
+                                          ? AppIcons.favoriteFilled
+                                          : AppIcons.favorite,
+                                      iconColor: AppTheme.accentColor,
+                                      iconSize: 24.0,
                                     ),
                                   ],
                                 ),
                                 const SizedBox(width: 20.0),
                                 Expanded(
                                   child: Text(
-                                    state.phrases[items],
+                                    state.phrases[items].toString(),
                                     style: const TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w500,
