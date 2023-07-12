@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vz_app/interactor/cubits/favorited_phrases/favorited_phrases_cubit.dart';
 import 'package:vz_app/interactor/cubits/phrases/phrases_cubit.dart';
-import 'package:vz_app/ui/utils/app_colors.dart';
 import 'package:vz_app/ui/utils/app_icons.dart';
 import 'package:vz_app/ui/utils/app_theme.dart';
 import 'package:vz_app/ui/widgets/appbar_widget.dart';
 import 'package:vz_app/ui/widgets/bottom_appbar_widget.dart';
+import 'package:vz_app/ui/widgets/drawer_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+    final favoritedPhrasesCubit = context.read<FavoritedPhrasesCubit>();
+    final phrasesCubit = context.read<PhrasesCubit>();
 
     return Scaffold(
       key: scaffoldKey,
@@ -54,7 +57,7 @@ class HomePage extends StatelessWidget {
                   height: 60.0,
                   width: 60.0,
                   child: CircularProgressIndicator(
-                    color: AppColors.blue,
+                    color: AppTheme.accentColor,
                     strokeWidth: 5.0,
                   ),
                 ),
@@ -90,13 +93,25 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ),
                                     const SizedBox(height: 10.0),
-                                    SvgPicture.asset(
-                                      AppIcons.favorite,
-                                      colorFilter: const ColorFilter.mode(
-                                        AppTheme.accentColor,
-                                        BlendMode.srcIn,
+                                    InkWell(
+                                      onTap: () {
+                                        favoritedPhrasesCubit.favoritePhrase(
+                                          phrase: state.phrases[items],
+                                        );
+                                        phrasesCubit.favoritePhrase(
+                                          itemId: items,
+                                        );
+                                      },
+                                      child: SvgPicture.asset(
+                                        state.favorites[items]
+                                            ? AppIcons.favoriteFilled
+                                            : AppIcons.favorite,
+                                        colorFilter: const ColorFilter.mode(
+                                          AppTheme.accentColor,
+                                          BlendMode.srcIn,
+                                        ),
+                                        width: 24.0,
                                       ),
-                                      width: 24.0,
                                     ),
                                   ],
                                 ),
@@ -131,7 +146,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: const BottomAppBarWidget(),
-      endDrawer: const Drawer(),
+      endDrawer: const DrawerWidget(),
     );
   }
 }

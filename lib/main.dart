@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:vz_app/ui/app.dart';
 import 'package:vz_app/ui/pages/splash_page.dart';
 
@@ -10,7 +11,8 @@ void main() async {
 
   runApp(const SplashPage());
 
-  await Future.delayed(const Duration(seconds: 2));
+  await Hive.initFlutter();
+  await Hive.openBox("phrases");
 
   runApp(const VzApp());
 

@@ -9,18 +9,29 @@ class PhrasesCubit extends Cubit<PhrasesState> {
   PhrasesRepository repository = PhrasesRepository();
 
   List _phrases = [];
+  final List _favorites = [];
 
   void getPhrases({required int number}) async {
     emit(PhrasesLoading());
+    
     _phrases = await repository.getPhrasesList(number: number);
+    _favorites.clear();
 
-    // ! TODO: REMOVER
-    await Future.delayed(const Duration(seconds: 2));
+    // ignore: unused_local_variable
+    for (var phrase in _phrases) {
+      _favorites.add(false);
+    }
 
-    emit(PhrasesLoaded(phrases: _phrases));
+    emit(PhrasesLoaded(phrases: _phrases, favorites: _favorites));
+  }
+
+  void favoritePhrase({required int itemId}) async {
+    _favorites[itemId] = true;
+    emit(PhrasesLoaded(phrases: _phrases, favorites: _favorites));
   }
 
   void clearPhrases() {
+    _favorites.clear();
     emit(PhrasesInitial());
   }
 }
