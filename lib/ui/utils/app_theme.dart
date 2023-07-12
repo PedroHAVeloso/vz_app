@@ -7,6 +7,7 @@ class AppTheme {
   static const Color tertiaryColor = AppColors.grey;
   static const Color accentColor = AppColors.blue;
   static const Color surfaceColor = AppColors.lightGrey;
+  static const Color negativeColor = AppColors.red;
 
   static ThemeData getTheme() {
     return ThemeData(

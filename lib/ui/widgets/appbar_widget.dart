@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vz_app/ui/utils/app_icons.dart';
 import 'package:vz_app/ui/utils/app_theme.dart';
+import 'package:vz_app/ui/widgets/buttons/icon_filled_button_widget.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key, required this.scaffoldKey});
@@ -32,15 +33,11 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   color: AppTheme.accentColor,
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-                child: IconButton(
+                child: IconFilledButtonWidget(
                   onPressed: () => scaffoldKey.currentState!.openEndDrawer(),
-                  icon: SvgPicture.asset(
-                    AppIcons.menu,
-                    colorFilter: const ColorFilter.mode(
-                      AppTheme.primaryColor,
-                      BlendMode.srcIn,
-                    ),
-                  ),
+                  fillColor: AppTheme.accentColor,
+                  iconPath: AppIcons.menu,
+                  iconColor: AppTheme.primaryColor,
                 ),
               ),
             ],
