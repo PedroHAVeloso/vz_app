@@ -13,7 +13,7 @@ class PhrasesCubit extends Cubit<PhrasesState> {
 
   void getPhrases({required int number}) async {
     emit(PhrasesLoading());
-    
+
     _phrases = await repository.getPhrasesList(number: number);
     _favorites.clear();
 
